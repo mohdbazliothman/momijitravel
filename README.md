@@ -2,6 +2,12 @@
 
 Modern Next.js landing page for Momiji Travel & Tours Sdn Bhd.
 
+## Routes
+
+- `/ms/` - Bahasa Melayu homepage
+- `/en/` - English homepage
+- `/` - redirects to `/ms/` on Vercel, with a static fallback page
+
 ## Local Development
 
 ```bash
@@ -27,5 +33,7 @@ Recommended Vercel settings:
 - Install Command: `npm install`
 - Build Command: `npm run build`
 - Output Directory: `out`
+
+The project includes `vercel.json` to redirect `/` to `/ms/`.
 
 After connecting the GitHub repository to Vercel, every push to the production branch will trigger a new deployment.

@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/ms/",
+      "permanent": true
+    }
+  ]
+}
