@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+outputs/
+work/
+assets/
+index.html
+AGENTS.md
+CLAUDE.md
+npm-debug.log*
+.env
+.env.local
+.env.*.local
