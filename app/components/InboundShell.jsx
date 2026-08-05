@@ -55,9 +55,8 @@ export default function InboundShell({ children }) {
               {label}
             </a>
           ))}
-          <a className="outbound-link" href="/ms/">Travelling from Malaysia? View Outbound Tours</a>
         </nav>
-        <a className="btn btn-primary header-cta" href={planLink()} target="_blank" rel="noopener noreferrer">
+        <a className="btn btn-primary header-cta inbound-plan-cta" href={planLink()} target="_blank" rel="noopener noreferrer">
           Plan Your Journey
         </a>
         <button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-label="Toggle menu" onClick={() => setMenuOpen((value) => !value)}>
@@ -81,7 +80,7 @@ export default function InboundShell({ children }) {
           </nav>
           <div>
             <p>WhatsApp: {inboundBusiness.phoneDisplay}<br />Email: {inboundBusiness.email}</p>
-            <a className="btn btn-light" href={planLink()} target="_blank" rel="noopener noreferrer">Plan Your Journey</a>
+            <a className="btn btn-primary inbound-footer-cta" href={planLink()} target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
           </div>
         </div>
         <div className="container footer-bottom">© 2026 Momiji Travel & Tours Sdn Bhd. All rights reserved.</div>

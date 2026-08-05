@@ -107,6 +107,18 @@ export const inboundContent = {
         },
       ],
     },
+    destinationVideo: {
+      eyebrow: "Welcome to Malaysia",
+      title: "A Journey Beyond the Ordinary",
+      copy:
+        "Discover a country where vibrant cities, living heritage, tropical landscapes and diverse cultures come together. Watch a glimpse of the experiences awaiting you in Malaysia.",
+      cta: "Explore Malaysia Tours",
+      href: "/int/#malaysia-tours",
+      videoId: "7sQN3kMNUGo",
+      iframeTitle: "Surreal Experiences – Visit Malaysia 2026",
+      thumbnailAlt: "Visit Malaysia 2026 destination video thumbnail showing Malaysia travel experiences",
+      attribution: "Destination inspiration video: Visit Malaysia 2026.",
+    },
     signature: {
       eyebrow: "Signature regional journey",
       title: "Malaysia, Singapore and Thailand Tour",

@@ -1,5 +1,6 @@
 import InboundEnquiryForm from "./InboundEnquiryForm";
 import InboundShell from "./InboundShell";
+import LazyYouTubeEmbed from "./LazyYouTubeEmbed";
 import { inboundContent, inboundRoutes, inboundWhatsAppLink } from "../content/inboundContent";
 
 const page = inboundContent.home;
@@ -54,18 +55,23 @@ export default function InboundHome() {
           </div>
         </section>
 
-        <section className="section section-red-tint" id="signature-tour">
-          <div className="container signature-panel reveal">
-            <figure className="signature-visual">
-              <img src="/images/international/tour-grand-journey.png" alt="Malaysia Singapore and Thailand grand journey" loading="lazy" />
-            </figure>
-            <div>
-              <span className="eyebrow">{page.signature.eyebrow}</span>
-              <h2>{page.signature.title}</h2>
-              <p>{page.signature.copy}</p>
-              <strong>{page.signature.route}</strong>
+        <section className="section destination-video-section">
+          <div className="container destination-video-grid">
+            <div className="section-head contact-head reveal">
+              <span className="eyebrow">{page.destinationVideo.eyebrow}</span>
+              <h2>{page.destinationVideo.title}</h2>
+              <p>{page.destinationVideo.copy}</p>
+              <a className="btn btn-primary" href={page.destinationVideo.href}>{page.destinationVideo.cta}</a>
             </div>
-            <a className="btn btn-primary" href={inboundRoutes.malaysiaSingaporeThailand}>{page.signature.cta}</a>
+            <div className="destination-video-card reveal">
+              <LazyYouTubeEmbed
+                videoId={page.destinationVideo.videoId}
+                title={page.destinationVideo.iframeTitle}
+                thumbnailAlt={page.destinationVideo.thumbnailAlt}
+              />
+              {/* Business owner should verify final Tourism Malaysia / Visit Malaysia 2026 attribution before launch. */}
+              <p>{page.destinationVideo.attribution}</p>
+            </div>
           </div>
         </section>
 
@@ -107,6 +113,21 @@ export default function InboundHome() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="section section-red-tint" id="signature-tour">
+          <div className="container signature-panel reveal">
+            <figure className="signature-visual">
+              <img src="/images/international/tour-grand-journey.png" alt="Malaysia Singapore and Thailand grand journey" loading="lazy" />
+            </figure>
+            <div>
+              <span className="eyebrow">{page.signature.eyebrow}</span>
+              <h2>{page.signature.title}</h2>
+              <p>{page.signature.copy}</p>
+              <strong>{page.signature.route}</strong>
+            </div>
+            <a className="btn btn-primary" href={inboundRoutes.malaysiaSingaporeThailand}>{page.signature.cta}</a>
           </div>
         </section>
 
