@@ -532,6 +532,281 @@ p { margin: 0; color: var(--muted); }
   box-shadow: 0 14px 30px rgba(31,41,51,.24);
 }
 
+.inbound-header .nav a { font-size: 13px; }
+.outbound-link {
+  color: var(--dark-red) !important;
+  background: var(--tint);
+}
+.inbound-hero,
+.tour-hero {
+  min-height: calc(100vh - 74px);
+  display: grid;
+  align-items: center;
+  color: var(--white);
+  background:
+    linear-gradient(110deg, rgba(31,41,51,.88) 0%, rgba(168,15,22,.72) 48%, rgba(31,41,51,.18) 100%),
+    url("/images/hero-lyg.jpg") center center / cover no-repeat;
+}
+.inbound-hero {
+  background:
+    linear-gradient(110deg, rgba(31,41,51,.9) 0%, rgba(168,15,22,.7) 48%, rgba(31,41,51,.2) 100%),
+    url("/images/international/hero-malaysia.avif") center center / cover no-repeat;
+}
+.tour-hero {
+  min-height: 72vh;
+  background:
+    linear-gradient(110deg, rgba(31,41,51,.9) 0%, rgba(168,15,22,.76) 52%, rgba(31,41,51,.28) 100%),
+    url("/images/package-melaka-education.jpg") center center / cover no-repeat;
+}
+.inbound-hero-grid {
+  display: grid;
+  gap: 28px;
+  padding: 78px 0 58px;
+}
+.inbound-hero-copy h1 {
+  max-width: 920px;
+  font-size: clamp(40px, 8vw, 78px);
+}
+.inbound-hero-copy h2 {
+  max-width: 760px;
+  margin-top: 14px;
+  color: rgba(255,255,255,.92);
+  font-size: clamp(24px, 4vw, 38px);
+}
+.inbound-hero-copy p {
+  max-width: 720px;
+  margin-top: 18px;
+  color: rgba(255,255,255,.88);
+  font-size: 18px;
+}
+.inbound-journey-card,
+.signature-panel,
+.tour-overview,
+.tour-facts,
+.inbound-form {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+.inbound-journey-card {
+  padding: 26px;
+  color: var(--ink);
+}
+.inbound-journey-card span {
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.inbound-journey-card h3 { margin-top: 10px; font-size: 28px; }
+.inbound-journey-card p { margin: 12px 0 18px; }
+.inbound-journey-card a {
+  color: var(--dark-red);
+  font-weight: 950;
+}
+.int-card-grid,
+.destination-grid,
+.timeline-grid {
+  display: grid;
+  gap: 18px;
+}
+.int-info-card,
+.destination-card,
+.timeline-grid article {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: 0 10px 26px rgba(31,41,51,.06);
+}
+.int-info-card h3,
+.destination-card h3 { margin-bottom: 10px; }
+.int-photo-card {
+  overflow: hidden;
+  padding: 0;
+}
+.int-photo-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--soft);
+}
+.int-photo-card div {
+  padding: 22px;
+}
+.signature-panel {
+  display: grid;
+  gap: 22px;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(16px, 3vw, 24px);
+}
+.signature-visual {
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--soft);
+}
+.signature-visual img {
+  width: 100%;
+  aspect-ratio: 16 / 8.5;
+  object-fit: cover;
+  object-position: center center;
+}
+.signature-panel > div {
+  padding: 4px clamp(8px, 2vw, 18px) clamp(8px, 2vw, 18px);
+}
+.signature-panel h2 { margin-top: 8px; }
+.signature-panel p { margin: 14px 0; max-width: 780px; }
+.signature-panel strong { color: var(--dark-red); }
+.destination-card span,
+.timeline-grid b {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  color: var(--dark-red);
+  background: var(--tint);
+  font-size: 12px;
+  font-weight: 950;
+}
+.trust-list,
+.plain-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.trust-list {
+  display: grid;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: 0 10px 26px rgba(31,41,51,.06);
+}
+.trust-list li,
+.plain-list li {
+  position: relative;
+  padding-left: 24px;
+  color: #364152;
+  font-weight: 750;
+}
+.trust-list li::before,
+.plain-list li::before {
+  content: "";
+  position: absolute;
+  top: .72em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+}
+.plain-list li + li { margin-top: 10px; }
+.inbound-tour-grid {
+  display: grid;
+  gap: 20px;
+}
+.inbound-tour-card .package-body {
+  gap: 0;
+}
+.tour-meta {
+  display: grid;
+  gap: 7px;
+  margin: 12px 0;
+}
+.tour-meta span {
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--dark-red);
+  background: var(--tint);
+  font-size: 13px;
+  font-weight: 950;
+}
+.tour-meta strong {
+  color: #364152;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.ideal-line {
+  margin: 0 0 18px;
+  color: #364152;
+  font-size: 14px;
+}
+.ideal-line strong { color: var(--ink); }
+.inbound-tour-featured {
+  border-color: rgba(215,25,32,.34);
+  box-shadow: 0 24px 60px rgba(168,15,22,.14);
+}
+.inbound-tour-featured .package-image span {
+  background: var(--dark-red);
+}
+.enquiry-grid,
+.tour-overview-grid,
+.tour-two-col {
+  display: grid;
+  gap: 24px;
+}
+.inbound-form {
+  padding: 22px;
+}
+.form-grid {
+  display: grid;
+  gap: 14px;
+}
+.inbound-form label { display: grid; gap: 6px; }
+.inbound-form span {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 900;
+}
+.inbound-form input,
+.inbound-form select,
+.inbound-form textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+.inbound-form textarea { resize: vertical; }
+.inbound-form .btn { margin-top: 16px; width: 100%; }
+.form-note {
+  margin-top: 12px;
+  font-size: 13px;
+}
+.tour-overview,
+.tour-facts {
+  padding: 26px;
+}
+.tour-overview h2 { margin: 8px 0 14px; }
+.tour-facts {
+  display: grid;
+  gap: 14px;
+  align-self: start;
+}
+.tour-facts div {
+  display: grid;
+  gap: 5px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.tour-facts div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.tour-facts strong { color: var(--dark-red); }
+.tour-facts span { color: var(--muted); }
+.inbound-footer .btn { margin-top: 14px; }
+
 @media (max-width: 1179px) {
   .nav {
     position: fixed;
@@ -558,6 +833,10 @@ p { margin: 0; color: var(--muted); }
   .gallery-feature { grid-column: span 2; grid-row: span 2; }
   .gallery-tall { grid-row: span 2; }
   .package-grid, .feature-grid, .steps-grid, .style-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+  .inbound-tour-grid { grid-template-columns: repeat(2, 1fr); }
+  .int-card-grid, .destination-grid, .timeline-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-wide { grid-column: 1 / -1; }
 }
 @media (min-width: 768px) {
   .strip-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -565,12 +844,18 @@ p { margin: 0; color: var(--muted); }
   .team-grid { grid-template-columns: .92fr 1.08fr; gap: 44px; }
   .team-photo { aspect-ratio: 16 / 11; }
   .contact-grid, .cta-grid { grid-template-columns: 1.25fr .75fr; }
+  .inbound-hero-grid { grid-template-columns: 1.15fr .85fr; align-items: end; }
+  .enquiry-grid, .tour-overview-grid, .tour-two-col { grid-template-columns: 1.15fr .85fr; }
   .footer-grid { grid-template-columns: 1.2fr 1fr auto; align-items: start; }
 }
 @media (min-width: 1024px) {
   .strip-grid { grid-template-columns: repeat(4, 1fr); }
   .package-grid, .feature-grid, .style-grid { grid-template-columns: repeat(3, 1fr); }
+  .inbound-tour-grid { grid-template-columns: repeat(3, 1fr); }
+  .inbound-tour-featured { grid-column: span 2; }
   .steps-grid { grid-template-columns: repeat(4, 1fr); }
+  .destination-grid { grid-template-columns: repeat(3, 1fr); }
+  .timeline-grid { grid-template-columns: repeat(4, 1fr); }
   .gallery-grid {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 210px;

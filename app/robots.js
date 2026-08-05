@@ -6,7 +6,7 @@ export default function robots() {
   return {
     rules: {
       userAgent: "*",
-      allow: ["/", "/en/", "/ms/", "/images/"],
+      allow: ["/", "/en/", "/ms/", "/int/", "/images/"],
       disallow: ["/api/", "/admin/"],
     },
     sitemap: absoluteUrl("/sitemap.xml"),

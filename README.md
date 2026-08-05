@@ -6,6 +6,8 @@ Modern Next.js landing page for Momiji Travel & Tours Sdn Bhd.
 
 - `/ms/` - Bahasa Melayu homepage
 - `/en/` - English homepage
+- `/int/` - International inbound-tourism homepage
+- `/int/multi-country-tours/malaysia-singapore-thailand/` - Signature Malaysia, Singapore and Thailand tour page
 - `/` - redirects to `/ms/` on Vercel, with a static fallback page
 
 ## Local Development
