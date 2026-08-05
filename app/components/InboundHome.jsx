@@ -136,13 +136,17 @@ export default function InboundHome() {
             <div className="section-head reveal">
               <span className="eyebrow">{page.destinations.eyebrow}</span>
               <h2>{page.destinations.title}</h2>
+              <p>{page.destinations.copy}</p>
             </div>
             <div className="destination-grid">
-              {page.destinations.items.map(([title, copy]) => (
-                <article className="destination-card reveal" key={title}>
-                  <span>{title.slice(0, 2).toUpperCase()}</span>
-                  <h3>{title}</h3>
-                  <p>{copy}</p>
+              {page.destinations.items.map((item) => (
+                <article className="destination-card destination-photo-card reveal" key={item.title}>
+                  <img src={item.image} alt={item.alt} loading="lazy" />
+                  <div>
+                    <h3>{item.title}</h3>
+                    <strong>{item.descriptor}</strong>
+                    <p>{item.copy}</p>
+                  </div>
                 </article>
               ))}
             </div>

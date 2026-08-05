@@ -647,6 +647,34 @@ p { margin: 0; color: var(--muted); }
 .int-photo-card div {
   padding: 22px;
 }
+.destination-photo-card {
+  overflow: hidden;
+  padding: 0;
+}
+.destination-photo-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--soft);
+  transition: transform .35s ease, filter .35s ease;
+}
+.destination-photo-card div {
+  padding: 22px;
+}
+.destination-photo-card strong {
+  display: block;
+  margin: -2px 0 8px;
+  color: var(--dark-red);
+  font-size: 14px;
+  line-height: 1.35;
+}
+.destination-photo-card p {
+  margin: 0;
+}
+.destination-photo-card:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.05);
+}
 .destination-video-section {
   background:
     linear-gradient(180deg, var(--white) 0%, var(--soft) 100%);
