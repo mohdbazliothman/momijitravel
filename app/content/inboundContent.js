@@ -11,6 +11,8 @@ import {
 
 export const inboundRoutes = {
   home: "/int/",
+  bookPlanningCall: "/int/book-planning-call/",
+  travelEnquiry: "/int/travel-enquiry/",
   malaysiaTours: "/int/malaysia-tours/",
   essentialMalaysia: "/int/malaysia-tours/essential-malaysia/",
   malaysiaHeritageJourney: "/int/malaysia-tours/malaysia-heritage-journey/",
@@ -42,6 +44,8 @@ export const inboundRoutes = {
 
 export const publishedInboundRoutes = [
   "home",
+  "bookPlanningCall",
+  "travelEnquiry",
   "malaysiaSingaporeThailand",
 ];
 
@@ -358,11 +362,67 @@ export const inboundContent = {
       ],
     },
     enquiry: {
-      eyebrow: "International enquiry",
-      title: "Start Planning Your Malaysia Journey",
+      eyebrow: "Plan your journey with us",
+      title: "Book a Free Trip Planning Call",
       copy:
-        "Share your travel basics and our team will respond on WhatsApp or email with suitable next steps. Final package details depend on your dates, group size and travel style.",
+        "Speak with our Malaysia-based travel team over a private video call. Share your preferred dates, group size, interests and budget, and we will help shape a suitable itinerary for your journey.",
+      primary: {
+        title: "Free Trip Planning Call",
+        points: [
+          "Complimentary 20-minute video consultation",
+          "Discuss your preferred dates, group size and interests",
+          "Ideal for private, family and multi-country journeys",
+        ],
+        cta: "Book Your Free Call",
+        href: inboundRoutes.bookPlanningCall,
+        reassurance: "No obligation to book",
+      },
+      secondary: {
+        title: "Prefer to send your details instead?",
+        copy:
+          "Complete a simple travel enquiry form and our team will follow up with recommendations and next steps.",
+        cta: "Send Travel Details",
+        href: inboundRoutes.travelEnquiry,
+        chips: ["Travel dates", "Number of travellers", "Destination interest", "Budget range"],
+      },
+      reassurance:
+        "Choose the option that suits you best - talk to us live or send your details at your own pace.",
     },
+  },
+  planningCall: {
+    route: inboundRoutes.bookPlanningCall,
+    title: "Book a Free Trip Planning Call | Momiji Travel",
+    description:
+      "Request a complimentary 20-minute Malaysia or Southeast Asia trip-planning video consultation with Momiji Travel.",
+    h1: "Book a Free Trip Planning Call",
+    eyebrow: "Planning consultation",
+    intro:
+      "Plan your Malaysia or Southeast Asia journey with our travel team during a complimentary 20-minute video consultation.",
+    copy:
+      "Tell us about your preferred dates, destinations, group size, travel style and budget. We will use the call to understand your requirements and discuss the most suitable next steps.",
+    note:
+      "Submitting this request does not automatically confirm an appointment. Our team will review your preferred schedule and send the confirmed meeting details by email.",
+    submitLabel: "Request My Free Planning Call",
+    success:
+      "Thank you for requesting a free trip-planning call. Our team will review your preferred schedule and contact you by email or WhatsApp with the confirmed meeting details.",
+    nextStep: "Please check your inbox, including your spam or promotions folder.",
+    consent:
+      "I agree that Momiji Travel may use the information provided to respond to my consultation request.",
+  },
+  travelEnquiry: {
+    route: inboundRoutes.travelEnquiry,
+    title: "Tell Us About Your Journey | Momiji Travel",
+    description:
+      "Send your Malaysia or Southeast Asia travel details to Momiji Travel for private, family, group and multi-country tour planning.",
+    h1: "Tell Us About Your Journey",
+    eyebrow: "Travel enquiry",
+    intro:
+      "Prefer to share your plans in writing? Complete the form below and our travel team will review your requirements and recommend the most suitable next steps.",
+    submitLabel: "Send My Travel Enquiry",
+    success:
+      "Thank you for sharing your travel details. Our team will review your requirements and contact you by email or WhatsApp with the next steps.",
+    consent:
+      "I agree that Momiji Travel may use the information provided to respond to my enquiry.",
   },
   signatureTour: {
     route: inboundRoutes.malaysiaSingaporeThailand,

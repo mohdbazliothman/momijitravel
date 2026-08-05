@@ -1,4 +1,4 @@
-import InboundEnquiryForm from "./InboundEnquiryForm";
+import InboundJourneyOptions from "./InboundJourneyOptions";
 import InboundShell from "./InboundShell";
 import LazyYouTubeEmbed from "./LazyYouTubeEmbed";
 import { inboundContent, inboundRoutes, inboundWhatsAppLink } from "../content/inboundContent";
@@ -216,18 +216,7 @@ export default function InboundHome() {
           </div>
         </section>
 
-        <section className="section section-soft" id="enquiry">
-          <div className="container enquiry-grid">
-            <div className="section-head contact-head reveal">
-              <span className="eyebrow">{page.enquiry.eyebrow}</span>
-              <h2>{page.enquiry.title}</h2>
-              <p>{page.enquiry.copy}</p>
-            </div>
-            <div className="reveal">
-              <InboundEnquiryForm />
-            </div>
-          </div>
-        </section>
+        <InboundJourneyOptions />
       </main>
     </InboundShell>
   );

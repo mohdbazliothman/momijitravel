@@ -39,6 +39,28 @@ export default function sitemap() {
       },
     },
     {
+      url: absoluteUrl(inboundRoutes.bookPlanningCall),
+      lastModified: new Date("2026-08-05"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          en: absoluteUrl(inboundRoutes.bookPlanningCall),
+        },
+      },
+    },
+    {
+      url: absoluteUrl(inboundRoutes.travelEnquiry),
+      lastModified: new Date("2026-08-05"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          en: absoluteUrl(inboundRoutes.travelEnquiry),
+        },
+      },
+    },
+    {
       url: absoluteUrl(inboundRoutes.malaysiaSingaporeThailand),
       lastModified: new Date("2026-08-05"),
       changeFrequency: "weekly",
