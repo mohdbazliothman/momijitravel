@@ -1,4 +1,5 @@
 import InboundFormPage from "../../../components/InboundFormPage";
+import StructuredData from "../../../components/StructuredData";
 import {
   breadcrumbSchema,
   inboundContent,
@@ -19,7 +20,7 @@ export default function BookPlanningCallPage() {
   return (
     <>
       <InboundFormPage page={page} type="planning-call" />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <StructuredData data={schema} />
     </>
   );
 }

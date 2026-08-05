@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { inboundBusiness, inboundNav, inboundRoutes, inboundWhatsAppLink } from "../content/inboundContent";
 
-function planLink() {
+function whatsappLink() {
   return inboundWhatsAppLink("Hi Momiji, I would like to plan an inbound Malaysia tour. Please advise the next steps.");
 }
 
@@ -55,8 +55,11 @@ export default function InboundShell({ children }) {
               {label}
             </a>
           ))}
+          <a className="nav-mobile-cta" href={inboundRoutes.bookPlanningCall} onClick={() => setMenuOpen(false)}>
+            Plan Your Journey
+          </a>
         </nav>
-        <a className="btn btn-primary header-cta inbound-plan-cta" href={planLink()} target="_blank" rel="noopener noreferrer">
+        <a className="btn btn-primary header-cta inbound-plan-cta" href={inboundRoutes.bookPlanningCall}>
           Plan Your Journey
         </a>
         <button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-label="Toggle menu" onClick={() => setMenuOpen((value) => !value)}>
@@ -80,7 +83,7 @@ export default function InboundShell({ children }) {
           </nav>
           <div>
             <p>WhatsApp: {inboundBusiness.phoneDisplay}<br />Email: {inboundBusiness.email}</p>
-            <a className="btn btn-primary inbound-footer-cta" href={planLink()} target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+            <a className="btn btn-primary inbound-footer-cta" href={whatsappLink()} target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
           </div>
         </div>
         <div className="container footer-bottom">© 2026 Momiji Travel & Tours Sdn Bhd. All rights reserved.</div>

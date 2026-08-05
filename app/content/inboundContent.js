@@ -19,7 +19,8 @@ export const inboundRoutes = {
   familyTour: "/int/malaysia-tours/family-tour/",
   multiCountryTours: "/int/multi-country-tours/",
   malaysiaSingapore: "/int/multi-country-tours/malaysia-singapore/",
-  malaysiaSingaporeThailand: "/int/multi-country-tours/malaysia-singapore-thailand/",
+  malaysiaSingaporeThailand: "/int/malaysia-singapore-thailand/",
+  legacyMalaysiaSingaporeThailand: "/int/multi-country-tours/malaysia-singapore-thailand/",
   destinations: "/int/destinations/",
   kualaLumpur: "/int/destinations/kuala-lumpur/",
   melaka: "/int/destinations/melaka/",
@@ -53,61 +54,85 @@ export const plannedInboundRoutes = Object.keys(inboundRoutes).filter((key) => !
 
 export const inboundNav = [
   ["malaysia", "Malaysia Tours", "/int/#malaysia-tours"],
-  ["multi", "Multi-Country Tours", "/int/#signature-tour"],
+  ["styles", "Travel Styles", "/int/#travel-styles"],
   ["destinations", "Destinations", "/int/#destinations"],
-  ["experiences", "Experiences", "/int/#experiences"],
-  ["private", "Private Tours", "/int/#travel-options"],
+  ["experiences", "Experiences", "/int/#travel-styles"],
+  ["multi", "Malaysia + Southeast Asia", inboundRoutes.malaysiaSingaporeThailand],
   ["guide", "Travel Guide", "/int/#travel-guide"],
   ["about", "About Momiji", "/int/#why-momiji"],
-  ["contact", "Contact", "/int/#enquiry"],
 ];
 
 export const inboundContent = {
   home: {
     route: inboundRoutes.home,
-    title: "Malaysia Tour Packages & Southeast Asia Tours | Momiji Travel",
+    title: "Private Malaysia Tours & Inbound Travel | Momiji Travel",
     description:
-      "Discover private and group tours across Malaysia, Singapore and Thailand. Explore Kuala Lumpur, Melaka, Penang and more with Momiji Travel.",
-    h1: "Discover Malaysia and Southeast Asia",
+      "Plan private Malaysia journeys, group tours and Southeast Asia extensions with Momiji Travel, a Malaysia-based inbound travel specialist in Melaka.",
+    h1: "Private Malaysia Journeys, Crafted Around You",
     hero: {
-      eyebrow: "International inbound tours",
-      title: "Discover Malaysia, the Heart of Southeast Asia",
+      eyebrow: "Malaysia-Based Inbound Travel Specialist",
+      title: "Experience Malaysia with a local team who plans around your pace, interests and group needs.",
       copy:
-        "Experience vibrant cities, UNESCO heritage, tropical landscapes and unforgettable local hospitality through carefully planned private and group tours.",
-      primaryCta: "Explore Malaysia Tours",
-      secondaryCta: "Plan Your Private Tour",
+        "Experience Malaysia through thoughtfully planned private tours, living heritage, local food, tropical nature and warm hospitality. Extend your journey to Singapore or Thailand when it suits your plans.",
+      primaryCta: "Plan My Malaysia Journey",
+      secondaryCta: "Explore Malaysia Tours",
       featureTitle: "Malaysia - Singapore - Thailand",
       featureCopy: "Three Countries, One Unforgettable Journey",
     },
+    trustStrip: [
+      ["Malaysia-Based Team", "Local support from Melaka, Malaysia"],
+      ["MOTAC Licensed", "Licence L/N 12842"],
+      ["Private and Group Planning", "Flexible pacing for different travellers"],
+      ["Muslim-Friendly Options", "Halal-conscious and prayer-aware planning"],
+      ["English-Speaking Support", "Clear communication before you travel"],
+    ],
     whyVisit: {
       eyebrow: "Why Malaysia",
-      title: "A Warm, Diverse Gateway to Southeast Asia",
+      title: "One Country, Many Ways to Experience Asia",
       copy:
-        "Malaysia gives international travellers a rare combination of modern comfort, living heritage, tropical nature, welcoming communities and easy regional access.",
+        "Malaysia brings together city life, heritage towns, island scenery, rainforest, highlands, food culture and Muslim-friendly convenience in one comfortable destination.",
       items: [
         {
-          title: "Culture & Heritage",
-          copy: "Historic cities, UNESCO-linked places, mosques, temples, museums and living neighbourhoods.",
+          title: "Culture and Living Heritage",
+          copy: "Historic streets, multicultural neighbourhoods, mosques, temples, museums and daily traditions that still feel alive.",
           image: "/images/international/why-malaysia-culture.jpg",
           alt: "Traditional cultural performance in Malaysia",
+          href: "/int/#destinations",
         },
         {
-          title: "Food & Local Life",
-          copy: "A rich mix of Malay, Chinese, Indian and regional flavours, with Muslim-friendly options widely available.",
+          title: "Food and Local Life",
+          copy: "A welcoming mix of Malay, Chinese, Indian and regional flavours, with halal-conscious options widely available.",
           image: "/images/international/why-malaysia-food-street.jpg",
           alt: "Malaysian street food vendor grilling satay",
+          href: "/int/#travel-styles",
         },
         {
-          title: "Nature & Islands",
-          copy: "Highlands, rainforest, beaches, mangroves and island escapes for relaxed or active travellers.",
+          title: "Nature and Islands",
+          copy: "Highlands, rainforest, beaches, mangroves and island escapes for relaxed travellers or active explorers.",
           image: "/images/international/why-malaysia-nature-island.png",
           alt: "Family boat tour at Kilim Geoforest Park in Langkawi Malaysia",
+          href: "/int/#destinations",
         },
         {
-          title: "Regional Access",
-          copy: "Malaysia works naturally as the main entry point for journeys onward to Singapore and Thailand.",
+          title: "Family-Friendly Travel",
+          copy: "Balanced sightseeing, private transport options and flexible pacing for families, children and senior travellers.",
+          image: "/images/international/tour-family-discovery-genting.jpg",
+          alt: "Genting Highlands family attractions in Malaysia",
+          href: "/int/#travel-styles",
+        },
+        {
+          title: "Muslim-Friendly Convenience",
+          copy: "Halal food, prayer facilities and Muslim-friendly arrangements can be planned naturally across many routes.",
+          image: "/images/international/why-malaysia-food.jpg",
+          alt: "Halal-friendly local food experience in Malaysia",
+          href: "/int/#travel-styles",
+        },
+        {
+          title: "Easy Regional Connections",
+          copy: "Malaysia is a practical entry point for journeys that continue to Singapore, Thailand or wider Southeast Asia.",
           image: "/images/international/why-malaysia-regional.jpg",
           alt: "International travellers collecting luggage at a Malaysia airport",
+          href: inboundRoutes.malaysiaSingaporeThailand,
         },
       ],
     },
@@ -119,25 +144,25 @@ export const inboundContent = {
       cta: "Explore Malaysia Tours",
       href: "/int/#malaysia-tours",
       videoId: "7sQN3kMNUGo",
-      iframeTitle: "Surreal Experiences – Visit Malaysia 2026",
+      iframeTitle: "Surreal Experiences - Visit Malaysia 2026",
       thumbnailAlt: "Visit Malaysia 2026 destination video thumbnail showing Malaysia travel experiences",
       attribution: "Destination inspiration video: Visit Malaysia 2026.",
     },
     signature: {
       eyebrow: "Signature regional journey",
-      title: "Malaysia, Singapore and Thailand Tour",
+      title: "Malaysia, Singapore and Thailand Grand Journey",
       copy:
-        "A customisable three-country journey where Malaysia remains the main destination, largest itinerary component and principal entry point before selected cross-border extensions.",
+        "A longer regional itinerary for travellers who want Malaysia as the heart of the journey, with carefully selected extensions to Singapore and Thailand. The route can be shaped around arrival city, travel style, pace and group profile.",
       route: "Malaysia as the main base, with Singapore and Thailand added as regional highlights.",
-      cta: "View Signature Tour",
+      cta: "Explore the Three-Country Journey",
     },
     featuredPackages: {
-      eyebrow: "Customisable Malaysia Tours",
-      title: "Explore Malaysia Your Way",
+      eyebrow: "Journey collections",
+      title: "Customisable Malaysia Tours",
       copy:
-        "Discover Malaysia through journeys designed for different travel styles. Explore vibrant cities, UNESCO heritage towns, tropical landscapes, family attractions and authentic local experiences. Every itinerary can be tailored to your schedule, interests and preferred pace.",
+        "Start with a journey style, then let our team shape the route around your dates, group size, pace and interests.",
       secondaryCopy:
-        "Whether you are visiting Malaysia for the first time, travelling with family or planning a longer Southeast Asian journey, Momiji can customise an itinerary around your travel dates, group size and interests.",
+        "These collections are not rigid off-the-shelf tours. They are planning starting points for private travellers, families, schools, companies and international groups.",
       items: [
         {
           badge: "First-Time Visitors",
@@ -156,8 +181,8 @@ export const inboundContent = {
             "Private transport and flexible pacing",
           ],
           idealFor: "First-time visitors, couples, families and small groups.",
-          cta: "View Malaysia Essentials",
-          slug: "/int/malaysia-tours/malaysia-essentials/",
+          cta: "Request This Journey",
+          slug: inboundRoutes.travelEnquiry,
         },
         {
           badge: "Culture & Heritage",
@@ -176,8 +201,8 @@ export const inboundContent = {
             "Guided cultural storytelling",
           ],
           idealFor: "Cultural travellers, educators, students, senior groups and heritage enthusiasts.",
-          cta: "Discover Malaysia's Heritage",
-          slug: "/int/malaysia-tours/heritage-and-culture/",
+          cta: "Request This Journey",
+          slug: inboundRoutes.travelEnquiry,
         },
         {
           badge: "Family Friendly",
@@ -196,12 +221,12 @@ export const inboundContent = {
             "Child-friendly and senior-friendly pacing",
           ],
           idealFor: "Families with children, multi-generational groups and private family holidays.",
-          cta: "Plan a Family Holiday",
-          slug: "/int/malaysia-tours/family-discovery/",
+          cta: "Request This Journey",
+          slug: inboundRoutes.travelEnquiry,
         },
         {
           badge: "Island & Beach",
-          title: "Tropical Malaysia Escape",
+          title: "Island Escape",
           duration: "7 Days / 6 Nights",
           route: "Kuala Lumpur - Langkawi",
           image: "/images/international/why-malaysia-nature.jpg",
@@ -216,8 +241,8 @@ export const inboundContent = {
             "Customisable balance of activities and relaxation",
           ],
           idealFor: "Couples, honeymooners, families and travellers seeking a tropical holiday.",
-          cta: "Explore Island Holidays",
-          slug: "/int/malaysia-tours/tropical-malaysia-escape/",
+          cta: "Request This Journey",
+          slug: inboundRoutes.travelEnquiry,
           internalNote: "Final island routing must be confirmed by the business team before publishing a dedicated page.",
         },
         {
@@ -237,8 +262,8 @@ export const inboundContent = {
             "Flexible activity levels",
           ],
           idealFor: "Nature lovers, photographers, active families and small adventure groups.",
-          cta: "Discover Malaysia's Nature",
-          slug: "/int/malaysia-tours/nature-and-highlands/",
+          cta: "Request This Journey",
+          slug: inboundRoutes.travelEnquiry,
         },
         {
           badge: "Signature Regional Tour",
@@ -257,8 +282,8 @@ export const inboundContent = {
             "Private and group arrangements",
           ],
           idealFor: "Long-haul travellers, families, private groups and visitors seeking a wider Southeast Asian experience.",
-          cta: "Explore the 3-Country Journey",
-          slug: "/int/multi-country-tours/malaysia-singapore-thailand/",
+          cta: "Explore the Three-Country Journey",
+          slug: inboundRoutes.malaysiaSingaporeThailand,
           featured: true,
         },
       ],
@@ -314,36 +339,53 @@ export const inboundContent = {
       ],
     },
     experiences: {
-      eyebrow: "Travel experiences",
+      eyebrow: "Travel by interest",
       title: "Choose the Experience That Fits Your Group",
       items: [
-        ["Culture & Heritage", "Historic neighbourhoods, museums, architecture and hands-on cultural encounters."],
-        ["Food Tours", "Local flavours, market visits and Muslim-friendly food planning where required."],
-        ["Nature & Wildlife", "Highlands, rainforest, river ecology, mangroves and island nature."],
+        ["Culture and Heritage", "Historic neighbourhoods, museums, architecture and hands-on cultural encounters."],
+        ["Food and Local Life", "Markets, local flavours, neighbourhood stops and Muslim-friendly meal planning where required."],
+        ["Nature and Wildlife", "Highlands, rainforest, river ecology, mangroves and island nature."],
+        ["Family Holidays", "Balanced sightseeing with space for children, parents and senior family members."],
         ["Muslim-Friendly Travel", "Prayer-aware planning, halal-conscious meals and family comfort."],
-        ["Family Holidays", "Balanced sightseeing with space for children, seniors and private family needs."],
+        ["Educational Journeys", "Learning-led programmes for schools, international schools and student groups."],
       ],
     },
+    melakaSpecialist: {
+      eyebrow: "Melaka specialist",
+      title: "Discover Malaysia Through Melaka",
+      copy:
+        "Momiji is based in Melaka, a UNESCO World Heritage city with deep multicultural roots. That local base helps us design Malaysia journeys with real ground knowledge, practical routing and stronger heritage storytelling.",
+      points: [
+        "Melaka heritage walks and riverside experiences",
+        "Local food, craft and community-based activities",
+        "Useful base for Kuala Lumpur, Johor and wider Malaysia routes",
+      ],
+      cta: "View Melaka in the Destination Collection",
+      href: "/int/#destinations",
+      image: "/images/international/tour-heritage-culture-melaka.webp",
+      alt: "Welcome to Melaka World Heritage City mural in Malaysia",
+    },
     options: {
-      eyebrow: "Private and group travel",
-      title: "Flexible Travel Planning for Different Groups",
+      eyebrow: "How custom planning works",
+      title: "From First Idea to Confirmed Journey",
       items: [
-        ["Private Tours", "Custom pacing, private vehicle options and flexible sightseeing priorities."],
-        ["Group Tours", "Suitable for travel agencies, associations, communities and larger families."],
-        ["Educational Tours", "Learning-focused programmes for schools, international schools and student groups."],
-        ["Corporate Incentive Travel", "Reward trips, company visits and team travel concepts can be scoped around your group profile."],
+        ["01", "Share your dates, group profile, preferred pace and destinations."],
+        ["02", "We suggest a practical route, itinerary flow and travel style."],
+        ["03", "Your itinerary is refined around comfort, logistics, meals and budget."],
+        ["04", "Once confirmed, our team coordinates the details before arrival."],
       ],
     },
     whyMomiji: {
       eyebrow: "Why travel with Momiji",
-      title: "A Malaysia-Based Team With Local Understanding",
+      title: "A Malaysia-Based Team With Practical Local Understanding",
       copy:
-        "Momiji Travel & Tours Sdn Bhd is based in Melaka, Malaysia and holds MOTAC License L/N 12842. We help international travellers plan practical, comfortable Malaysia-first journeys.",
+        "Momiji Travel & Tours Sdn Bhd is based in Melaka, Malaysia and holds MOTAC License L/N 12842. We help international travellers plan Malaysia-first journeys that are comfortable, realistic and easy to discuss before arrival.",
       items: [
-        "Malaysia-based travel support",
+        "Malaysia-based planning and travel support",
         "MOTAC License L/N 12842",
         "Muslim-friendly planning available",
-        "Private, group, school and corporate enquiries",
+        "Private, family, school, corporate and agency enquiries",
+        "Flexible routing for Malaysia and selected regional extensions",
       ],
     },
     testimonials: {
@@ -354,18 +396,35 @@ export const inboundContent = {
     },
     guides: {
       eyebrow: "Malaysia travel guides",
-      title: "Helpful Planning Notes",
+      title: "Helpful Planning Notes for International Travellers",
       items: [
-        ["Best Entry Point", "Kuala Lumpur is usually the easiest international gateway. Final airport advice depends on flight access and itinerary."],
-        ["Trip Duration", "Malaysia can work as a short city-and-heritage trip or as a longer journey with islands, highlands and regional extensions."],
-        ["Muslim-Friendly Travel", "Halal-conscious meals and prayer-aware routing can be included where suitable."],
+        {
+          title: "Best Entry Point",
+          copy: "Kuala Lumpur is usually the easiest international gateway. Final airport advice depends on flight access and itinerary.",
+          href: "/int/#enquiry",
+        },
+        {
+          title: "Trip Duration",
+          copy: "Malaysia can work as a short city-and-heritage trip or as a longer journey with islands, highlands and regional extensions.",
+          href: "/int/#malaysia-tours",
+        },
+        {
+          title: "Muslim-Friendly Travel",
+          copy: "Halal-conscious meals and prayer-aware routing can be included where suitable.",
+          href: "/int/#travel-styles",
+        },
+        {
+          title: "Multi-Country Planning",
+          copy: "Malaysia can anchor a wider journey that continues to Singapore or Thailand when the schedule allows.",
+          href: inboundRoutes.malaysiaSingaporeThailand,
+        },
       ],
     },
     enquiry: {
       eyebrow: "Plan your journey with us",
-      title: "Book a Free Trip Planning Call",
+      title: "Let's Design Your Malaysia Journey",
       copy:
-        "Speak with our Malaysia-based travel team over a private video call. Share your preferred dates, group size, interests and budget, and we will help shape a suitable itinerary for your journey.",
+        "Tell us where you want to go, who is travelling and what kind of experience you want. We will help shape a Malaysia itinerary that feels practical, comfortable and memorable.",
       primary: {
         title: "Free Trip Planning Call",
         points: [
@@ -482,7 +541,8 @@ export function inboundMetadata(page) {
     alternates: {
       canonical,
       languages: {
-        en: canonical,
+        "en-MY": canonical,
+        "x-default": absoluteUrl(inboundRoutes.home),
       },
     },
     openGraph: {
@@ -491,10 +551,10 @@ export function inboundMetadata(page) {
       title: page.title,
       description: page.description,
       siteName: companyName,
-      locale: "en",
+      locale: "en_MY",
       images: [
         {
-          url: absoluteUrl("/images/hero-lyg.jpg"),
+          url: absoluteUrl("/images/international/hero-malaysia.avif"),
           width: 1920,
           height: 1080,
           alt: "Malaysia and Southeast Asia tour planning by Momiji Travel",
@@ -505,7 +565,7 @@ export function inboundMetadata(page) {
       card: "summary_large_image",
       title: page.title,
       description: page.description,
-      images: [absoluteUrl("/images/hero-lyg.jpg")],
+      images: [absoluteUrl("/images/international/hero-malaysia.avif")],
     },
   };
 }

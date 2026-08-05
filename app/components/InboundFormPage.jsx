@@ -1,10 +1,18 @@
+import Breadcrumbs from "./Breadcrumbs";
 import InboundSecureForm from "./InboundSecureForm";
 import InboundShell from "./InboundShell";
+import { inboundRoutes } from "../content/inboundContent";
 
 export default function InboundFormPage({ page, type }) {
+  const crumbs = [
+    { name: "International Tours", url: inboundRoutes.home },
+    { name: page.h1, url: page.route },
+  ];
+
   return (
     <InboundShell>
       <main>
+        <Breadcrumbs items={crumbs} />
         <section className="section section-soft planning-page-hero">
           <div className="container planning-page-grid">
             <div className="section-head contact-head reveal">

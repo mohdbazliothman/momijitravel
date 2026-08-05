@@ -1,4 +1,5 @@
 import InboundHome from "../../components/InboundHome";
+import StructuredData from "../../components/StructuredData";
 import {
   breadcrumbSchema,
   inboundContent,
@@ -22,13 +23,7 @@ export default function InternationalHomePage() {
   return (
     <>
       <InboundHome />
-      {schemas.map((schema) => (
-        <script
-          key={schema["@id"] || schema["@type"]}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      ))}
+      <StructuredData data={schemas} />
     </>
   );
 }

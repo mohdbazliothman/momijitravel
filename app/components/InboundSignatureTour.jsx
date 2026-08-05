@@ -1,3 +1,4 @@
+import Breadcrumbs from "./Breadcrumbs";
 import InboundEnquiryForm from "./InboundEnquiryForm";
 import InboundShell from "./InboundShell";
 import { inboundContent, inboundRoutes } from "../content/inboundContent";
@@ -20,6 +21,12 @@ export default function InboundSignatureTour() {
   return (
     <InboundShell>
       <main>
+        <Breadcrumbs
+          items={[
+            { name: "International Tours", url: inboundRoutes.home },
+            { name: page.h1, url: page.route },
+          ]}
+        />
         <section className="tour-hero">
           <div className="container inbound-hero-grid">
             <div className="inbound-hero-copy">

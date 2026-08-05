@@ -1,13 +1,9 @@
 import InboundJourneyOptions from "./InboundJourneyOptions";
 import InboundShell from "./InboundShell";
 import LazyYouTubeEmbed from "./LazyYouTubeEmbed";
-import { inboundContent, inboundRoutes, inboundWhatsAppLink } from "../content/inboundContent";
+import { inboundContent, inboundRoutes } from "../content/inboundContent";
 
 const page = inboundContent.home;
-
-function tourEnquiryLink(item) {
-  return inboundWhatsAppLink(`Hi Momiji, I am interested in the ${item.title} inbound tour. Please share how it can be customised for my group.`);
-}
 
 export default function InboundHome() {
   return (
@@ -21,8 +17,8 @@ export default function InboundHome() {
               <h2 className="reveal">{page.hero.title}</h2>
               <p className="reveal">{page.hero.copy}</p>
               <div className="hero-actions reveal">
-                <a className="btn btn-primary" href="#malaysia-tours">{page.hero.primaryCta}</a>
-                <a className="btn btn-light" href="#enquiry">{page.hero.secondaryCta}</a>
+                <a className="btn btn-primary" href={inboundRoutes.bookPlanningCall}>{page.hero.primaryCta}</a>
+                <a className="btn btn-light" href="#malaysia-tours">{page.hero.secondaryCta}</a>
               </div>
             </div>
             <aside className="inbound-journey-card reveal">
@@ -34,6 +30,18 @@ export default function InboundHome() {
           </div>
         </section>
 
+        <section className="inbound-trust-strip" aria-label="Momiji Travel inbound trust points">
+          <div className="container inbound-trust-grid">
+            {page.trustStrip.map(([title, copy]) => (
+              <article className="reveal" key={title}>
+                <span aria-hidden="true">{title.slice(0, 2).toUpperCase()}</span>
+                <strong>{title}</strong>
+                <p>{copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="section" id="why-malaysia">
           <div className="container">
             <div className="section-head reveal">
@@ -42,15 +50,18 @@ export default function InboundHome() {
               <p>{page.whyVisit.copy}</p>
             </div>
             <div className="int-card-grid">
-              {page.whyVisit.items.map((item) => (
-                <article className="int-info-card int-photo-card reveal" key={item.title}>
-                  <img src={item.image} alt={item.alt} loading="lazy" />
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.copy}</p>
-                  </div>
-                </article>
-              ))}
+              {page.whyVisit.items.map((item) => {
+                const Card = item.href ? "a" : "article";
+                return (
+                  <Card className="int-info-card int-photo-card why-link-card reveal" href={item.href} key={item.title}>
+                    <img src={item.image} alt={item.alt} loading="lazy" />
+                    <div>
+                      <h3>{item.title}</h3>
+                      <p>{item.copy}</p>
+                    </div>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -72,6 +83,21 @@ export default function InboundHome() {
               {/* Business owner should verify final Tourism Malaysia / Visit Malaysia 2026 attribution before launch. */}
               <p>{page.destinationVideo.attribution}</p>
             </div>
+          </div>
+        </section>
+
+        <section className="section section-red-tint" id="signature-tour">
+          <div className="container signature-panel reveal">
+            <figure className="signature-visual">
+              <img src="/images/international/tour-grand-journey.png" alt="Malaysia Singapore and Thailand grand journey" loading="lazy" />
+            </figure>
+            <div>
+              <span className="eyebrow">{page.signature.eyebrow}</span>
+              <h2>{page.signature.title}</h2>
+              <p>{page.signature.copy}</p>
+              <strong>{page.signature.route}</strong>
+            </div>
+            <a className="btn btn-primary" href={inboundRoutes.malaysiaSingaporeThailand}>{page.signature.cta}</a>
           </div>
         </section>
 
@@ -103,9 +129,7 @@ export default function InboundHome() {
                     <p className="ideal-line"><strong>Ideal for:</strong> {item.idealFor}</p>
                     <a
                       className="btn btn-primary btn-full"
-                      href={item.featured ? item.slug : tourEnquiryLink(item)}
-                      target={item.featured ? undefined : "_blank"}
-                      rel={item.featured ? undefined : "noopener noreferrer"}
+                      href={item.slug}
                     >
                       {item.cta}
                     </a>
@@ -113,21 +137,6 @@ export default function InboundHome() {
                 </article>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="section section-red-tint" id="signature-tour">
-          <div className="container signature-panel reveal">
-            <figure className="signature-visual">
-              <img src="/images/international/tour-grand-journey.png" alt="Malaysia Singapore and Thailand grand journey" loading="lazy" />
-            </figure>
-            <div>
-              <span className="eyebrow">{page.signature.eyebrow}</span>
-              <h2>{page.signature.title}</h2>
-              <p>{page.signature.copy}</p>
-              <strong>{page.signature.route}</strong>
-            </div>
-            <a className="btn btn-primary" href={inboundRoutes.malaysiaSingaporeThailand}>{page.signature.cta}</a>
           </div>
         </section>
 
@@ -153,7 +162,7 @@ export default function InboundHome() {
           </div>
         </section>
 
-        <section className="section" id="experiences">
+        <section className="section" id="travel-styles">
           <div className="container">
             <div className="section-head reveal">
               <span className="eyebrow">{page.experiences.eyebrow}</span>
@@ -167,15 +176,32 @@ export default function InboundHome() {
           </div>
         </section>
 
-        <section className="section section-red-tint" id="travel-options">
+        <section className="section section-red-tint melaka-specialist-section" id="melaka-specialist">
+          <div className="container melaka-specialist-grid">
+            <figure className="melaka-specialist-visual reveal">
+              <img src={page.melakaSpecialist.image} alt={page.melakaSpecialist.alt} loading="lazy" />
+            </figure>
+            <div className="section-head contact-head reveal">
+              <span className="eyebrow">{page.melakaSpecialist.eyebrow}</span>
+              <h2>{page.melakaSpecialist.title}</h2>
+              <p>{page.melakaSpecialist.copy}</p>
+              <ul className="plain-list">
+                {page.melakaSpecialist.points.map((point) => <li key={point}>{point}</li>)}
+              </ul>
+              <a className="btn btn-primary" href={page.melakaSpecialist.href}>{page.melakaSpecialist.cta}</a>
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="planning-process">
           <div className="container">
             <div className="section-head reveal">
               <span className="eyebrow">{page.options.eyebrow}</span>
               <h2>{page.options.title}</h2>
             </div>
             <div className="feature-grid">
-              {page.options.items.map(([title, copy]) => (
-                <article className="feature-card reveal" key={title}><span>{title.slice(0, 2).toUpperCase()}</span><h3>{title}</h3><p>{copy}</p></article>
+              {page.options.items.map(([step, copy]) => (
+                <article className="feature-card reveal" key={step}><span>{step}</span><h3>Step {step}</h3><p>{copy}</p></article>
               ))}
             </div>
           </div>
@@ -194,23 +220,19 @@ export default function InboundHome() {
           </div>
         </section>
 
-        <section className="section section-soft">
-          <div className="container section-head reveal">
-            <span className="eyebrow">{page.testimonials.eyebrow}</span>
-            <h2>{page.testimonials.title}</h2>
-            <p>{page.testimonials.copy}</p>
-          </div>
-        </section>
-
-        <section className="section" id="travel-guide">
+        <section className="section section-soft" id="travel-guide">
           <div className="container">
             <div className="section-head reveal">
               <span className="eyebrow">{page.guides.eyebrow}</span>
               <h2>{page.guides.title}</h2>
             </div>
             <div className="steps-grid">
-              {page.guides.items.map(([title, copy]) => (
-                <article className="reveal" key={title}><h3>{title}</h3><p>{copy}</p></article>
+              {page.guides.items.map((item) => (
+                <article className="guide-card reveal" key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                  <a href={item.href}>Read related planning note</a>
+                </article>
               ))}
             </div>
           </div>

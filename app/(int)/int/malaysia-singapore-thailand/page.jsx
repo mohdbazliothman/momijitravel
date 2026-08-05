@@ -1,5 +1,5 @@
-import InboundSignatureTour from "../../../../components/InboundSignatureTour";
-import StructuredData from "../../../../components/StructuredData";
+import InboundSignatureTour from "../../../components/InboundSignatureTour";
+import StructuredData from "../../../components/StructuredData";
 import {
   breadcrumbSchema,
   faqSchema,
@@ -8,22 +8,21 @@ import {
   inboundOrganizationSchema,
   inboundRoutes,
   touristTripSchema,
-} from "../../../../content/inboundContent";
+} from "../../../content/inboundContent";
 
 const page = inboundContent.signatureTour;
 
 export const metadata = inboundMetadata(page);
 
-export default function MalaysiaSingaporeThailandTourPage() {
+export default function MalaysiaSingaporeThailandPage() {
   const schemas = [
     inboundOrganizationSchema(page.description),
-    breadcrumbSchema([
-      { name: "International Tours", url: inboundRoutes.home },
-      { name: "Multi-Country Tours", url: `${inboundRoutes.home}#signature-tour` },
-      { name: page.h1, url: inboundRoutes.malaysiaSingaporeThailand },
-    ]),
     touristTripSchema(page),
     faqSchema(page),
+    breadcrumbSchema([
+      { name: "International Tours", url: inboundRoutes.home },
+      { name: "Malaysia, Singapore and Thailand Tour", url: inboundRoutes.malaysiaSingaporeThailand },
+    ]),
   ];
 
   return (
