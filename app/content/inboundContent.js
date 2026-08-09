@@ -123,8 +123,8 @@ export const inboundContent = {
         {
           title: "Muslim-Friendly Convenience",
           copy: "Halal food, prayer facilities and Muslim-friendly arrangements can be planned naturally across many routes.",
-          image: "/images/international/why-malaysia-food.jpg",
-          alt: "Halal-friendly local food experience in Malaysia",
+          image: "/images/international/why-malaysia-prayer.jpg",
+          alt: "Prayer mats prepared in a quiet Muslim-friendly space",
           href: "/int/#travel-styles",
         },
         {
