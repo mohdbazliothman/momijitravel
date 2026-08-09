@@ -1,6 +1,7 @@
 import InboundJourneyOptions from "./InboundJourneyOptions";
 import InboundShell from "./InboundShell";
 import LazyYouTubeEmbed from "./LazyYouTubeEmbed";
+import MalaysiaDiscoveryGallery from "./MalaysiaDiscoveryGallery";
 import { inboundContent, inboundRoutes } from "../content/inboundContent";
 
 const page = inboundContent.home;
@@ -41,6 +42,8 @@ export default function InboundHome() {
             ))}
           </div>
         </section>
+
+        <MalaysiaDiscoveryGallery />
 
         <section className="section" id="why-malaysia">
           <div className="container">
