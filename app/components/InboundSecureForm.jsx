@@ -1,6 +1,8 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
+import { inboundRoutes } from "../content/inboundContent";
 
 const baseInitial = {
   fullName: "",
@@ -58,6 +60,7 @@ function FormMessage({ state, children }) {
 }
 
 export default function InboundSecureForm({ type, page }) {
+  const router = useRouter();
   const initial = useMemo(() => (type === "planning-call" ? bookingInitial : enquiryInitial), [type]);
   const [form, setForm] = useState(initial);
   const [status, setStatus] = useState({ state: "idle", message: "" });
@@ -85,8 +88,7 @@ export default function InboundSecureForm({ type, page }) {
         throw new Error(data.error || "The form could not be sent. Please try again.");
       }
 
-      setForm(initial);
-      setStatus({ state: "success", message: `${page.success}${page.nextStep ? ` ${page.nextStep}` : ""}` });
+      router.push(inboundRoutes.thankYou);
     } catch (error) {
       setStatus({ state: "error", message: error.message });
     } finally {

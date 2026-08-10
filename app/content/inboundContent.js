@@ -11,6 +11,7 @@ import {
 
 export const inboundRoutes = {
   home: "/int/",
+  thankYou: "/int/thank-you/",
   bookPlanningCall: "/int/book-planning-call/",
   travelEnquiry: "/int/travel-enquiry/",
   malaysiaTours: "/int/malaysia-tours/",
@@ -45,6 +46,7 @@ export const inboundRoutes = {
 
 export const publishedInboundRoutes = [
   "home",
+  "thankYou",
   "bookPlanningCall",
   "travelEnquiry",
   "malaysiaSingaporeThailand",

@@ -1,7 +1,8 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { inboundWhatsAppLink } from "../content/inboundContent";
+import { inboundRoutes } from "../content/inboundContent";
 
 const initialForm = {
   fullName: "",
@@ -19,42 +20,70 @@ const initialForm = {
   budget: "",
   requirements: "",
   notes: "",
+  consent: false,
+  website: "",
 };
 
 export default function InboundEnquiryForm({ compact = false }) {
+  const router = useRouter();
   const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState({ state: "idle", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function updateField(event) {
-    const { name, value } = event.target;
-    setForm((current) => ({ ...current, [name]: value }));
+    const { name, type, checked, value } = event.target;
+    setForm((current) => ({ ...current, [name]: type === "checkbox" ? checked : value }));
   }
 
-  function submitForm(event) {
+  async function submitForm(event) {
     event.preventDefault();
-    const message = [
-      "Hi Momiji, I would like to plan an inbound Malaysia tour.",
-      `Full name: ${form.fullName || "-"}`,
-      `Country of residence: ${form.country || "-"}`,
-      `Email: ${form.email || "-"}`,
-      `WhatsApp number: ${form.whatsapp || "-"}`,
-      `Preferred travel dates: ${form.dates || "-"}`,
-      `Adults: ${form.adults || "-"}`,
-      `Children: ${form.children || "-"}`,
-      `Preferred package: ${form.package || "-"}`,
-      `Arrival airport: ${form.airport || "-"}`,
-      `Expected trip duration: ${form.duration || "-"}`,
-      `Accommodation preference: ${form.accommodation || "-"}`,
-      `Tour type: ${form.tourType || "-"}`,
-      `Estimated budget: ${form.budget || "-"}`,
-      `Special requirements: ${form.requirements || "-"}`,
-      `Additional information: ${form.notes || "-"}`,
-    ].join("\n");
+    setIsSubmitting(true);
+    setStatus({ state: "idle", message: "" });
 
-    window.open(inboundWhatsAppLink(message), "_blank", "noopener,noreferrer");
+    const emailForm = {
+      fullName: form.fullName,
+      country: form.country,
+      email: form.email,
+      whatsapp: form.whatsapp,
+      contactMethod: "Either email or WhatsApp",
+      destination: form.package || "Inbound Malaysia tour",
+      dates: form.dates,
+      adults: form.adults,
+      children: form.children,
+      arrivalAirport: form.airport,
+      duration: form.duration,
+      accommodation: form.accommodation,
+      tourType: form.tourType,
+      budget: form.budget,
+      requirements: form.requirements,
+      additionalInfo: form.notes,
+      consent: form.consent,
+      website: form.website,
+    };
+
+    try {
+      const response = await fetch("/api/inbound-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "travel-enquiry", form: emailForm }),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "The form could not be sent. Please try again.");
+      }
+
+      router.push(inboundRoutes.thankYou);
+    } catch (error) {
+      setStatus({ state: "error", message: error.message });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
     <form className={`inbound-form ${compact ? "inbound-form-compact" : ""}`} onSubmit={submitForm}>
+      <input type="text" name="website" value={form.website} onChange={updateField} tabIndex="-1" autoComplete="off" className="form-honeypot" aria-hidden="true" />
       <div className="form-grid">
         <label>
           <span>Full name</span>
@@ -137,8 +166,19 @@ export default function InboundEnquiryForm({ compact = false }) {
           <textarea name="notes" value={form.notes} onChange={updateField} rows="4" placeholder="Tell us your travel style, must-see places or any important details." />
         </label>
       </div>
-      <button className="btn btn-primary" type="submit">Start Planning My Journey</button>
-      <p className="form-note">This form opens WhatsApp with your enquiry details. No package price or itinerary is final until confirmed by Momiji Travel.</p>
+      <label className="consent-row">
+        <input name="consent" type="checkbox" checked={form.consent} onChange={updateField} required />
+        <span>I agree that Momiji Travel may use the information provided to respond to my enquiry.</span>
+      </label>
+      <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "Sending..." : "Start Planning My Journey"}
+      </button>
+      <p className="form-note">Your enquiry will be sent securely to Momiji Travel. No package price or itinerary is final until confirmed after consultation.</p>
+      {status.message && (
+        <p className={`form-message ${status.state === "error" ? "form-message-error" : "form-message-success"}`}>
+          {status.message}
+        </p>
+      )}
     </form>
   );
 }
