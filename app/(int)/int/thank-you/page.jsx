@@ -74,7 +74,7 @@ export default function InboundThankYouPage() {
 
               <p className="thank-you-urgent">
                 Need urgent assistance?{" "}
-                <a href={urgentWhatsAppLink} target="_blank" rel="noopener noreferrer">
+                <a href={urgentWhatsAppLink} target="_blank" rel="noopener noreferrer" data-analytics-location="enquiry">
                   WhatsApp Momiji Travel
                 </a>
               </p>

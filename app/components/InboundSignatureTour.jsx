@@ -1,6 +1,7 @@
 import Breadcrumbs from "./Breadcrumbs";
 import InboundEnquiryForm from "./InboundEnquiryForm";
 import InboundShell from "./InboundShell";
+import PackageViewTracker from "./PackageViewTracker";
 import { inboundContent, inboundRoutes } from "../content/inboundContent";
 
 const page = inboundContent.signatureTour;
@@ -20,6 +21,11 @@ function ListBlock({ title, items }) {
 export default function InboundSignatureTour() {
   return (
     <InboundShell>
+      <PackageViewTracker
+        packageName={page.h1}
+        packageDestination="Malaysia, Singapore and Thailand"
+        packageUrl={page.route}
+      />
       <main>
         <Breadcrumbs
           items={[
@@ -34,7 +40,15 @@ export default function InboundSignatureTour() {
               <h1 className="reveal">{page.h1}</h1>
               <p className="reveal">{page.heroCopy}</p>
               <div className="hero-actions reveal">
-                <a className="btn btn-primary" href="#tour-enquiry">Start Planning My Journey</a>
+                <a
+                  className="btn btn-primary"
+                  href="#tour-enquiry"
+                  data-analytics-event="consultation_click"
+                  data-analytics-location="hero"
+                  data-analytics-package-name={page.h1}
+                >
+                  Start Planning My Journey
+                </a>
                 <a className="btn btn-light" href={inboundRoutes.home}>Back to Malaysia Tours</a>
               </div>
             </div>
@@ -164,7 +178,14 @@ export default function InboundSignatureTour() {
               <p>Tell us your arrival country, preferred route and group profile. We will confirm the practical next steps without publishing unconfirmed prices or dates.</p>
             </div>
             <div className="reveal">
-              <InboundEnquiryForm compact />
+              <InboundEnquiryForm
+                compact
+                analyticsContext={{
+                  packageName: page.h1,
+                  packageDestination: "Malaysia, Singapore and Thailand",
+                  leadSource: "package_enquiry_form",
+                }}
+              />
             </div>
           </div>
         </section>

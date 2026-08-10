@@ -21,7 +21,7 @@ export default function InboundJourneyOptions() {
               <ul className="plain-list">
                 {page.primary.points.map((point) => <li key={point}>{point}</li>)}
               </ul>
-              <a className="btn btn-primary btn-full" href={page.primary.href}>{page.primary.cta}</a>
+              <a className="btn btn-primary btn-full" href={page.primary.href} data-analytics-event="consultation_click" data-analytics-location="enquiry">{page.primary.cta}</a>
               <p className="option-reassurance">{page.primary.reassurance}</p>
             </div>
           </article>

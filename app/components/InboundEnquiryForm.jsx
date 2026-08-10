@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { inboundRoutes } from "../content/inboundContent";
+import { trackGenerateLead } from "../lib/analytics";
 
 const initialForm = {
   fullName: "",
@@ -24,7 +25,7 @@ const initialForm = {
   website: "",
 };
 
-export default function InboundEnquiryForm({ compact = false }) {
+export default function InboundEnquiryForm({ compact = false, analyticsContext = {} }) {
   const router = useRouter();
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState({ state: "idle", message: "" });
@@ -73,6 +74,11 @@ export default function InboundEnquiryForm({ compact = false }) {
         throw new Error(data.error || "The form could not be sent. Please try again.");
       }
 
+      trackGenerateLead({
+        packageName: analyticsContext.packageName || form.package || "Inbound Malaysia tour",
+        packageDestination: analyticsContext.packageDestination || "Malaysia",
+        leadSource: analyticsContext.leadSource || "inbound_enquiry_form",
+      });
       router.push(inboundRoutes.thankYou);
     } catch (error) {
       setStatus({ state: "error", message: error.message });
@@ -82,7 +88,11 @@ export default function InboundEnquiryForm({ compact = false }) {
   }
 
   return (
-    <form className={`inbound-form ${compact ? "inbound-form-compact" : ""}`} onSubmit={submitForm}>
+    <form
+      className={`inbound-form ${compact ? "inbound-form-compact" : ""}`}
+      data-analytics-package-name={analyticsContext.packageName || form.package || undefined}
+      onSubmit={submitForm}
+    >
       <input type="text" name="website" value={form.website} onChange={updateField} tabIndex="-1" autoComplete="off" className="form-honeypot" aria-hidden="true" />
       <div className="form-grid">
         <label>

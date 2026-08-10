@@ -18,7 +18,7 @@ export default function InboundHome() {
               <h2 className="reveal">{page.hero.title}</h2>
               <p className="reveal">{page.hero.copy}</p>
               <div className="hero-actions reveal">
-                <a className="btn btn-primary" href={inboundRoutes.bookPlanningCall}>{page.hero.primaryCta}</a>
+                <a className="btn btn-primary" href={inboundRoutes.bookPlanningCall} data-analytics-event="consultation_click" data-analytics-location="hero">{page.hero.primaryCta}</a>
                 <a className="btn btn-light" href="#malaysia-tours">{page.hero.secondaryCta}</a>
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function InboundHome() {
               <p>{page.signature.copy}</p>
               <strong>{page.signature.route}</strong>
             </div>
-            <a className="btn btn-primary" href={inboundRoutes.malaysiaSingaporeThailand}>{page.signature.cta}</a>
+            <a className="btn btn-primary" href={inboundRoutes.malaysiaSingaporeThailand} data-analytics-location="package" data-analytics-package-name={page.signature.title}>{page.signature.cta}</a>
           </div>
         </section>
 
@@ -114,7 +114,11 @@ export default function InboundHome() {
             </div>
             <div className="inbound-tour-grid">
               {page.featuredPackages.items.map((item) => (
-                <article className={`package-card inbound-tour-card reveal ${item.featured ? "inbound-tour-featured" : ""}`} key={item.title}>
+                <article
+                  className={`package-card inbound-tour-card reveal ${item.featured ? "inbound-tour-featured" : ""}`}
+                  data-analytics-package-name={item.title}
+                  key={item.title}
+                >
                   <div className="package-image">
                     <img src={item.image} alt={item.alt} loading="lazy" />
                     <span>{item.badge}</span>
@@ -133,6 +137,8 @@ export default function InboundHome() {
                     <a
                       className="btn btn-primary btn-full"
                       href={item.slug}
+                      data-analytics-location="package"
+                      data-analytics-package-name={item.title}
                     >
                       {item.cta}
                     </a>

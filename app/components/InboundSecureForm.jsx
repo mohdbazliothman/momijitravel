@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { inboundRoutes } from "../content/inboundContent";
+import { trackGenerateLead } from "../lib/analytics";
 
 const baseInitial = {
   fullName: "",
@@ -88,6 +89,11 @@ export default function InboundSecureForm({ type, page }) {
         throw new Error(data.error || "The form could not be sent. Please try again.");
       }
 
+      trackGenerateLead({
+        packageName: type === "planning-call" ? "Free trip planning call" : "Inbound travel enquiry",
+        packageDestination: "Malaysia",
+        leadSource: type,
+      });
       router.push(inboundRoutes.thankYou);
     } catch (error) {
       setStatus({ state: "error", message: error.message });
@@ -99,7 +105,11 @@ export default function InboundSecureForm({ type, page }) {
   const hasChildren = Number(form.children) > 0;
 
   return (
-    <form className="inbound-form secure-inbound-form" onSubmit={submitForm}>
+    <form
+      className="inbound-form secure-inbound-form"
+      data-analytics-package-name={type === "planning-call" ? "Free trip planning call" : "Inbound travel enquiry"}
+      onSubmit={submitForm}
+    >
       <input type="text" name="website" value={form.website} onChange={updateField} tabIndex="-1" autoComplete="off" className="form-honeypot" aria-hidden="true" />
 
       <fieldset>

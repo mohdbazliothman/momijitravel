@@ -55,11 +55,11 @@ export default function InboundShell({ children }) {
               {label}
             </a>
           ))}
-          <a className="nav-mobile-cta" href={inboundRoutes.bookPlanningCall} onClick={() => setMenuOpen(false)}>
+          <a className="nav-mobile-cta" href={inboundRoutes.bookPlanningCall} onClick={() => setMenuOpen(false)} data-analytics-event="consultation_click" data-analytics-location="header">
             Plan Your Journey
           </a>
         </nav>
-        <a className="btn btn-primary header-cta inbound-plan-cta" href={inboundRoutes.bookPlanningCall}>
+        <a className="btn btn-primary header-cta inbound-plan-cta" href={inboundRoutes.bookPlanningCall} data-analytics-event="consultation_click" data-analytics-location="header">
           Plan Your Journey
         </a>
         <button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-label="Toggle menu" onClick={() => setMenuOpen((value) => !value)}>
@@ -83,7 +83,7 @@ export default function InboundShell({ children }) {
           </nav>
           <div>
             <p>WhatsApp: {inboundBusiness.phoneDisplay}<br />Email: {inboundBusiness.email}</p>
-            <a className="btn btn-primary inbound-footer-cta" href={whatsappLink()} target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+            <a className="btn btn-primary inbound-footer-cta" href={whatsappLink()} target="_blank" rel="noopener noreferrer" data-analytics-location="footer">WhatsApp Us</a>
           </div>
         </div>
         <div className="container footer-bottom">© 2026 Momiji Travel & Tours Sdn Bhd. All rights reserved.</div>
